@@ -1,0 +1,63 @@
+﻿<Window x:Class="WPF_Final.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Final"
+        mc:Ignorable="d"
+        Title="Калькулятор" Height="550" Width="350" Background="SlateGray" ResizeMode="NoResize" Icon="/1.jpg" WindowStartupLocation="CenterScreen">
+    <Window.CommandBindings>
+        <CommandBinding Command="Save" Executed="SaveEx"/>
+    </Window.CommandBindings>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Background="DimGray"  Padding="2">
+            <MenuItem Header="Файл" Foreground="Black">
+                <MenuItem Header="Save" Command = "Save" Margin="0" Foreground="Black"/>
+            </MenuItem>
+        </Menu>
+        <Grid x:Name="Panel" Margin="5, 5, 5, 15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Background="White" BorderBrush="Black" Grid.RowSpan="2" Grid.ColumnSpan="4" BorderThickness="2" CornerRadius="25"/>
+            <TextBlock x:Name="textBox" Text="0" FontSize="40" Foreground="Black" Margin="10 10 10 10" TextAlignment="Right" VerticalAlignment="Center" Focusable="True" Grid.Row="1" Grid.ColumnSpan="4"/>
+            <TextBlock x:Name="textEq" FontSize="20" Foreground="Black" Margin="5 5 20 5" TextAlignment="Right" VerticalAlignment="Top" Grid.Row="0" Grid.ColumnSpan="4"/>
+
+            <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource lightGreenButton}" Content="←"/>
+            <Button Grid.Column="0" Grid.Row="3" Style="{StaticResource greyButton}" Content="7"/>
+            <Button Grid.Column="0" Grid.Row="4" Style="{StaticResource greyButton}" Content="4"/>
+            <Button Grid.Column="0" Grid.Row="5" Style="{StaticResource greyButton}" Content="1"/>
+            <Button Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource greyButton}" Content="0"/>
+
+            <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource greyButton}" Content="8"/>
+            <Button Grid.Column="1" Grid.Row="4" Style="{StaticResource greyButton}" Content="5"/>
+            <Button Grid.Column="1" Grid.Row="5" Style="{StaticResource greyButton}" Content="2"/>
+
+            <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource lightGreenButton}" Content="C"/>
+            <Button Grid.Column="2" Grid.Row="3" Style="{StaticResource greyButton}" Content="9"/>
+            <Button Grid.Column="2" Grid.Row="4" Style="{StaticResource greyButton}" Content="6"/>
+            <Button Grid.Column="2" Grid.Row="5" Style="{StaticResource greyButton}" Content="3"/>
+            <Button Grid.Column="2" Grid.Row="6" Style="{StaticResource greyButton}" Content="."/>
+
+            <Button Grid.Column="3" Grid.Row="5" Grid.RowSpan="2" Content="=" IsDefault="True" Style="{StaticResource greenButton}" />
+            <Button Grid.Column="2" Grid.Row="2" Content="/" Style="{StaticResource lightGreenButton}"/>
+            <Button Grid.Column="3" Grid.Row="2" Content="*" Style="{StaticResource lightGreenButton}"/>
+            <Button Grid.Column="3" Grid.Row="3" Content="-" Style="{StaticResource lightGreenButton}"/>
+            <Button Grid.Column="3" Grid.Row="4" Content="+" Style="{StaticResource lightGreenButton}"/>
+        </Grid>
+    </DockPanel>
+
+</Window>
